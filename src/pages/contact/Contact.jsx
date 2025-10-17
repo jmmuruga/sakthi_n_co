@@ -4,11 +4,10 @@ import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
 // import emailjs from "emailjs-com";
 import emailjs from "@emailjs/browser";
+import { BiSolidPhoneCall } from "react-icons/bi";
+import { IoLocationSharp, IoMail } from "react-icons/io5";
 function Contact() {
-
-
-  
-   const form = useRef();
+  const form = useRef();
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -26,7 +25,7 @@ function Contact() {
           form.current.reset();
         },
         (error) => {
-            console.error("EmailJS Error:", error);
+          console.error("EmailJS Error:", error);
           // alert("Something went wrong ❌");
         }
       );
@@ -46,14 +45,40 @@ function Contact() {
         </p>
 
         {/* Contact Container */}
-        <div className="w-full max-w-6xl flex flex-col md:flex-row items-center gap-10 lg:gap-16  bg-purple-100 shadow-lg rounded-2xl p-6 md:p-10">
+        <div className="w-full max-w-6xl flex flex-col md:flex-row  gap-10 lg:gap-16  bg-purple-100 shadow-lg rounded-2xl p-6 md:p-10">
           {/* Left Image */}
-          <div className="w-full md:w-[50%]">
-            <img
+          <div className="w-full md:w-[50%] flex flex-col justify-center items-center">
+            {/* <img
               src={contact}
               alt="Contact"
               className="w-full rounded-2xl  shadow-md h-[400px]"
-            />
+            /> */}
+            <div className="flex flex-col gap-5 text-lg">
+              <div className="text-3xl text-center">Contact Us!</div>
+              <div className="text-gray-600 text-justify py-4">
+                We’d love to hear from you! Whether you have questions, ideas,
+                or feedback, our team is here to help. Reach out to us anytime,
+                and we’ll get back to you as soon as possible. Your thoughts
+                matter, and we’re committed to providing the support you need.
+                Connect with us via email, phone, or our contact form below.
+              </div>
+              <div className="flex gap-3">
+                <span>
+                  <BiSolidPhoneCall size={24} />
+                </span>
+                +91 97152 88904
+              </div>
+              <div className="flex gap-3 sm:flex-row sm:gap-2 justify-center md:justify-start">
+                <IoMail size={24} />
+                sales@sakthiandco.in
+              </div>
+              <div className="flex gap-3 sm:flex-row sm:gap-2 justify-center md:justify-start">
+                <IoLocationSharp size={24} />
+                <p className="text-gray-700">
+                  20A, Kalapatti, Coimbatore, <span>TamilNadu 641048</span>
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* Right Form */}
@@ -128,7 +153,7 @@ function Contact() {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 }

@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import logo from "../../assets/logo/logo2.png";
+import logo from "../../assets/logo/logo4.png";
 import { SiWhatsapp } from "react-icons/si";
 import { IoCall } from "react-icons/io5";
 import { IoMdArrowRoundUp } from "react-icons/io";
@@ -13,8 +13,8 @@ function Header() {
     <>
       
       <div className="flex justify-between px-5 md:items-center bg-gray-100 ">
-        <div className=" hidden  md:flex py-3 md:w-[40%]">
-          <img src={logo} alt="Reliable Home Services logo" className="w-20 h-20 rounded-lg"></img>
+        <div className=" hidden  md:flex py-3 md:w-full">
+          <img src={logo} alt="Reliable Home Services logo" className="w-32 h-20 rounded-lg"></img>
         </div>
 
         <div className="hidden md:flex md:gap-10 xl:w-[40%]  justify-center text-lg font-semibold">
@@ -43,7 +43,7 @@ function Header() {
             About
           </NavLink>
           <NavLink
-            to="/services"
+            to="/product"
             className={({ isActive }) =>
               ` ${
                 isActive
@@ -52,7 +52,7 @@ function Header() {
               }`
             }
           >
-            Services
+            Products
           </NavLink>
           {/* <NavLink
             to="/products"
