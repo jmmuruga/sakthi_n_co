@@ -1,7 +1,36 @@
+import { useRef } from "react";
 import contact from "../../assets/images/contactimg.png";
 import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
+// import emailjs from "emailjs-com";
+import emailjs from "@emailjs/browser";
 function Contact() {
+
+
+  
+   const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_vc3fktq",
+        "template_qhqg01m",
+        form.current,
+        "PEUQZaCjsaHHXEaWf"
+      )
+      .then(
+        (result) => {
+          alert("Message sent successfully ✅");
+          form.current.reset();
+        },
+        (error) => {
+            console.error("EmailJS Error:", error);
+          // alert("Something went wrong ❌");
+        }
+      );
+  };
   return (
     <>
       <Header />
@@ -29,7 +58,7 @@ function Contact() {
 
           {/* Right Form */}
           <div className="w-full md:w-[50%]">
-            <form className="space-y-6">
+            <form className="space-y-6" ref={form} onSubmit={sendEmail}>
               <div>
                 <label className=" text-gray-700 font-semibold mb-2">
                   Your Name
@@ -37,6 +66,7 @@ function Contact() {
                 <input
                   type="text"
                   placeholder="Enter your name"
+                  name="user_name"
                   className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-400 outline-none transition"
                   required
                 />
@@ -48,6 +78,7 @@ function Contact() {
                 </label>
                 <input
                   type="email"
+                  name="user_email"
                   placeholder="Enter your email"
                   className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-400 outline-none transition"
                   required
@@ -64,6 +95,7 @@ function Contact() {
                   className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-400 outline-none transition"
                   minLength={10}
                   maxLength={10}
+                  name="user_mobile"
                   required
                   onKeyPress={(e) => {
                     if (!/^\d$/.test(e.key)) {
@@ -79,6 +111,7 @@ function Contact() {
                 </label>
                 <textarea
                   rows="5"
+                  name="message"
                   placeholder="Write your message..."
                   className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-400 outline-none transition resize-none"
                   required

@@ -1,5 +1,7 @@
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/logo/logo2.png";
+import { BiSolidPhoneCall } from "react-icons/bi";
+import { IoMail } from "react-icons/io5";
 
 function Footer() {
   return (
@@ -39,8 +41,8 @@ function Footer() {
               Contact Details
             </h3>
             <div className="flex flex-col gap-4 text-gray-700 text-base">
-              <div className="flex flex-col sm:flex-row sm:gap-2 justify-center md:justify-start">
-                <span className="font-bold">Phone:</span>
+              <div className="flex  sm:flex-row sm:gap-2 justify-center md:justify-start">
+              <span> <BiSolidPhoneCall size={24} /></span>
                 <a
                   href="tel:+919715288904"
                   className="hover:underline text-gray-700"
@@ -49,17 +51,17 @@ function Footer() {
                 </a>
               </div>
 
-              <div className="flex flex-col sm:flex-row sm:gap-2 justify-center md:justify-start">
-                <span className="font-bold">Email:</span>
+              <div className="flex  sm:flex-row sm:gap-2 justify-center md:justify-start">
+                <IoMail size={24} />
                 <a
                   href="mailto:sakthi641048kalaptti@gmail.com"
                   className="hover:underline text-gray-700 break-words"
                 >
-                  sakthi641048kalaptti@gmail.com
+                  sales@sakthi&co.in
                 </a>
               </div>
 
-              <div className="flex flex-col sm:flex-row sm:gap-2 justify-center md:justify-start">
+              <div className="flex  sm:flex-row sm:gap-2 justify-center md:justify-start">
                 <span className="font-bold">Address:</span>
                 <p className="text-gray-700">
                   20A, Kalapatti, Coimbatore, Tamil Nadu 641048
@@ -71,7 +73,7 @@ function Footer() {
 
         {/* Divider */}
         <div className="mt-10 border-t border-gray-700 pt-6 text-center text-sm text-gray-800">
-          © {new Date().getFullYear()} sakthi@co. All Rights
+          © {new Date().getFullYear()} www.sakthi&co.in All Rights
           Reserved.
         </div>
       </div>
